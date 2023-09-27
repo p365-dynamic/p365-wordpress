@@ -1,0 +1,69 @@
+<h1>Static.html here .... 11</h1>
+<script>console.log("hello from scruipt");</script>
+<script src="./app/js/Policies365.core-1.2.min.js"></script>
+<script src="./app/js/Policies365.core-1.3.min.js"></script>
+<script src="./app/js/Policies365.common.min.js"></script>
+<script src="./app/js/Policies365.labels.min.js"></script>
+<script src="./app/js/Policies365.bikePayment.min.js"></script>
+<script src="./app/js/Policies365.bikeQuote.min.js"></script>
+<script src="./app/js/Policies365.bikeProposal.min.js"></script>
+<script src="./app/js/Policies365.carPayment.min.js"></script>
+<script src="./app/js/Policies365.carProposal.min.js"></script>
+<script src="./app/js/Policies365.carQuote.min.js"></script>
+<script src="./app/js/Policies365.criticalIllnessQuote.min.js"></script>
+<script src="./app/js/Policies365.healthPayment.min.js"></script>
+<script src="./app/js/Policies365.healthProposal.min.js"></script>
+<script src="./app/js/Policies365.healthQuote.min.js"></script>
+<script src="./app/js/Policies365.lifePayment.min.js"></script>
+<script src="./app/js/Policies365.lifeProposal.min.js"></script>
+<script src="./app/js/Policies365.lifeQuote.min.js"></script>
+<script src="./app/js/Policies365.personalAccidentPayment.min.js"></script>
+<script src="./app/js/Policies365.personalAccidentProposal.min.js"></script>
+<script src="./app/js/Policies365.personalAccidentQuote.min.js"></script>
+<script src="./app/js/Policies365.travelPayment.min.js"></script>
+<script src="./app/js/Policies365.travelProposal.min.js"></script>
+<script src="./app/js/Policies365.travelQuote.min.js"></script>
+<script src="./app/js/Policies365.professionalJourney.min.js"></script>
+<script src="./app/js/Policies365.homeQuote.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+
+<!--js above this-->
+<script src="./policies365/js/bootApp.js" defer></script>
+
+<div ng-controller="headerController">
+    <div ng-view class="ng_id" id="home" autoscroll="true" ng-if="$root.professionalJourneyInit"></div>
+</div>
+
+
+<script type="text/javascript">
+    console.log("a=====", a);
+    (function() {
+        console.log("==============Target Link", newPage);
+        var anchors = document.getElementsByTagName('a');
+        var historyState = {};
+        var base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        console.log("base url => ", base);
+        for (var i = 0; i < anchors.length; i++) {
+            //Only apply this to same domain links
+            if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
+                continue;
+            }
+
+            anchors[i].addEventListener('click', function(evt) {
+                evt.preventDefault();
+
+                //Change to new page with hash
+                var newPage = this.href;
+                console.log("==============Target Link", newPage);
+                window.location.href = newPage;
+
+                //Remove hash from URL and replace with desired URL
+                // if (history && history.pushState) {
+                //     //Only do this if history.pushState is supported by the browser
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+                // }
+            });
+        }
+    })();
+</script>

@@ -1,0 +1,5 @@
+%flex-display{display:flex;}
+.star-rating{display:flex;align-items:center;font-size:22px;letter-spacing:3px;justify-content:center;margin-top:0;}
+.back-stars{display:flex;color:#bb5252;position:relative;text-shadow:4px 4px 10px #843a3a;}
+.front-stars{display:flex;color:#FFBC0B;overflow:hidden;position:absolute;text-shadow:2px 2px 5px #d29b09;top:0;}
+#main-nav li:last-child{display:none;}

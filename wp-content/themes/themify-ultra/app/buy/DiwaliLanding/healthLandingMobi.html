@@ -1,0 +1,464 @@
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup,
+	tt, var, ol, ul, li, fieldset, form, label, legend, table, caption,
+	tbody, tfoot, thead, tr, th, td, textarea {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background:;
+	font-family: "Raleway", Arial, sans-serif;
+	font-size: 0.9em;
+	overflow: auto;
+	color: #424242;
+} /*"HN-Light",*/
+@font-face {
+	font-family: "Lato !important";
+	src: url(../fonts/Lato-Regular.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Lato Light !important";
+	src: url(../fonts/Lato-Light.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Lato !important";
+	src: url(../fonts/Lato-Bold.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Raleway !important";
+	src: url(../fonts/Raleway-Bold.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Raleway ExtraBold !important";
+	src: url(../fonts/Raleway-ExtraBold.ttf)
+		/* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Raleway !important";
+	src: url(../fonts/Raleway-Regular.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+@font-face {
+	font-family: "Raleway Light !important";
+	src: url(../fonts/Raleway-Light.ttf) /* TTF file for CSS3 browsers */ 
+		/* @import url(../fonts/OpenSans-Regular.ttf) */
+}
+
+a {
+	cursor: pointer;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #bab8b8 !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+	color: #282828 !important;
+	font-size: 12px;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+	color: #bab8b8 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: #bab8b8 !important;
+}
+
+.CLheader {
+	background-image: url('img/WP_landing/CLCarBackgrd.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	background: none;
+}
+
+.headerContainer {
+	padding: 3%;
+}
+
+.CLHeadTitle {
+	font-size: 20px !important;
+	color: #fff;
+	line-height: 25px;
+	font-weight: bold;
+	opacity: 0.9;
+}
+
+.LowerContainer {
+	padding: 5%;
+}
+
+.mobiText {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px 0px 10px 0px;
+}
+
+.font12 {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.wp_inputBorderRadius md-input-container, .md-input {
+	border-radius: 25px;
+	padding: 7px 20px;
+	margin: 5px 0;
+}
+
+.wp_inputBorderRadius md-select .md-select-value.md-select-placeholder .md-input label,
+	.wp_inputBorderRadius md-select .md-select-icon {
+	color: #424242 !important;
+}
+
+.wp_inputBorderRadius .ng-invalid {
+	border-bottom: 0px solid #fff !important;
+}
+
+.wp_inputBorderRadius md-select .md-select-value.md-select-placeholder {
+	color: #424242 !important;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+md-input-container .md-input {
+	border-color: #424242 !important;
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.detailBorBot .md-select-value, .detailBorBot .md-input {
+	border-bottom-color: rgba(0, 0, 0, 0.23) !important;
+}
+
+.OTPInputBorder .md-input::-moz-placeholder, .OTPInputBorder .md-input::-webkit-input-placeholder,
+	.OTPInputBorder .md-input:-ms-input-placeholder {
+	color: #4b4b4b !important;
+	font-size: 18px;
+}
+
+.OTPInputBorder .md-input:invalid {
+	border-bottom: 1px solid #f7a100 !important;
+}
+
+.OTPInputBorder .md-input {
+	border-bottom: 1px solid #a2a2a2 !important;
+	font-size: 18px !important;
+}
+
+.wp_inputBorderRadius md-input-container, .md-input {
+	padding: 0px;
+	margin: 5px 0;
+	font-weight: bold;
+	font-size: 17px;
+	text-transform: capitalize;
+}
+
+.wp_inputBorderRadius md-select .md-select-value.md-select-placeholder .md-input label,
+	.wp_inputBorderRadius md-select .md-select-icon {
+	color: #424242 !important;
+}
+
+.LowerContainer .material-icons {
+	margin-top: -6px;
+}
+
+.TandCFont {
+	font-size: 11px;
+	font-weight: bold;
+	color: #424242 !important;
+}
+
+.font18B {
+	font-size: 18px;
+}
+
+input[type="text"] {
+	padding: 10px 20px;
+	margin: 5px 0;
+	color: #424242 !important;
+	background-color: transparent;
+}
+
+.navBar .navLogo img {
+	width: 90px !important;
+	float: left;
+}
+
+.navBar .navMenu {
+	float: right;
+}
+
+.navBar .navMenu ul {
+	list-style-type: none;
+}
+
+.navBar .navMenu ul li {
+	display: inline;
+	width: 400px;
+}
+
+.navBar .navMenu ul li a {
+	color: #414042;
+	font-size: 20px;
+	font-weight: normal;
+	padding: 20px;
+}
+
+.wp_viewBtn {
+	background-color: #19607d !important;
+	color: #FFF !important;
+}
+
+.wp_inputBorderRadius .md-text {
+	color: #282828 !important;
+}
+
+md-input-container label {
+	color: #424242 !important;
+	font-size: 16px !important;
+}
+
+.wp_landingViewBtn {
+	background-color: #48a901 !important;
+	margin-bottom: 0px !important;
+	width: 100%;
+	border-radius: 0px !important;
+}
+
+md-checkbox {
+	margin-bottom: 0px;
+}
+
+.angular_landing{padding-top:0% !important;}
+
+</style>
+
+<div class="CLheader"
+	style="background-image: url('{{$root.wp_path}}img/WP_landing/diwali/health/bannerMobile.jpg'); padding-bottom: 60%;">
+	<div class="pad10">
+		<div class="navBar" layout="row" layout-xs="row" layout-sm="row">
+			<div class="navLogo" flex="55" flex-xs="50" flex-sm="50">
+				<a href="https://www.policies365.com"><img
+					ng-src="{{$root.wp_path}}img/health_Img/p365Logo.png"></a>
+			</div>
+			<div class="navLogo" flex="55" flex-xs="50" flex-sm="50">
+				<!-- Responsive Nav -->
+				<md-menu> <md-button class="md-icon-button"
+					aria="Open demo menu" ng-click="openMenu($mdOpenMenu,$event)"
+					style="left: 90px;top: -5px"> <i class="fa fa-bars"></i></md-button>
+				<md-menu-content width="4"> <md-menu-item>
+				<md-button
+					ng-class="{activeNav : activeViewMenu === '{{item.action}}'}">
+				<a href="https://www.policies365.com/about-us">About Us</a> </md-button> </md-menu-item> <md-menu-item>
+				<md-button
+					ng-class="{activeNav : activeViewMenu === '{{item.action}}'}">
+				<a href="https://www.policies365.com/contact-us">Contact Us</a></md-button> </md-menu-item> <md-menu-item>
+				<md-button
+					ng-class="{activeNav : activeViewMenu === '{{item.action}}'}">
+				<a href="callto:02242114299">Call Us</a></md-button> </md-menu-item> </md-menu-content> </md-menu>
+				<!-- Responsive Nav -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="clear"></div>
+<div class="">
+	<div class="LowerContainer"
+		style="background-color: #e8e8e8; box-shadow: inset 0px 0px 10px #dadada;">
+		<div layout="row" class="mobiText">
+			<div flex="5">
+				<span style="color: #7371ff; font-size: 16px;">&#8226;</span>
+				<!-- <i class="material-icons">fiber_manual_record</i> -->
+			</div>
+			<div flex="95">Cashless treatment at 3500+ empanelled hospitals.</div>
+		</div>
+		<div layout="row" class="mobiText">
+			<div flex="5">
+				<span style="color: #7371ff; font-size: 16px;">&#8226;</span>
+				<!-- <i class="material-icons">fiber_manual_record</i> -->
+			</div>
+			<div flex="95">Free health check-ups for the insured.</div>
+		</div>
+		<div layout="row" class="mobiText">
+			<div flex="5">
+				<span style="color: #7371ff; font-size: 16px;">&#8226;</span>
+				<!-- <i class="material-icons">fiber_manual_record</i> -->
+			</div>
+			<div flex="95">Pre and post-hospitalisation cover to save on related medical expenses.</div>
+		</div>
+		<div layout="row" style="margin: 30px 45px 0px;">
+			<div class="font18B">
+				<h1>WE CARE. WE SERVE.</h1>
+			</div>
+		</div>
+	</div>
+	<ng-container ng-include="currentTab"></ng-container>
+	<form name="$root.validateUserInfo">
+		<div class="LowerContainer">
+			<md-input-container class="md-block mar11" flex-gt-sm>
+			<label>Mobile Number</label> <input type="text" name="mobileNumber"
+				value="" style="box-shadow: unset;" placeholder="Mobile number"
+				class="md-input" ng-model="quoteUserInfo.mobileNumber"
+				ng-pattern='/^[789]\d{9}$/' maxlength='10' minlength='10' required>
+			<div ng-messages="$root.validateUserInfo.mobileNumber.$error"
+				ng-if="$root.validateUserInfo.mobileNumber.$touched"
+				md-auto-hide="false">
+				<div ng-message="required" style="color: red; font-size: 12px;">Phone
+					number is required</div>
+				<div ng-message="pattern" style="color: red; font-size: 12px;">Enter
+					valid Mobile No</div>
+			</div>
+			</md-input-container>
+			<!-- </div> -->
+			<div>
+				<md-checkbox style="display:block" class="blackAddon resize"
+					ng-model="quoteUserInfo.termsCondition" name='termsCondition'
+					required>
+				<p style="text-align: left;" class="showforMobile TandCFont">
+					I accept the <a
+						href='https://www.policies365.com/termsandconditions'
+						target="blank">Terms & Conditions</a>
+				</p>
+				</md-checkbox>
+				<div ng-messages="$root.validateUserInfo.termsCondition.$error"
+					ng-if="$root.validateUserInfo.termsCondition.$touched">
+					<div style="color: red; font-size: 12px;" ng-message="required">This
+						is required</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<md-button type="submit" ng-click="$root.validateForm()"
+				id="aboutLeadBtn"
+				class="md-raised md-primary leadBtnPadding wp_landingViewBtn"
+				style="display: block;"> <b>SUBMIT</b> </md-button>
+		</div>
+	</form>
+</div>
+
+<modal-dialog show='modalOTP' width='500px' height='auto'
+	class="ng-hide">
+<div class='ng-modal-close wp_modalClose'
+	ng-click='closeAuthenticateForm()' ng-if="$root.wordPressEnabled">
+	<i class="material-icons">close</i>
+</div>
+<form name="authenticateForm">
+	<div class="modalHeader wp_noBluebackground wp_noBoxShadow">
+		<div class="blueBackground one-edge-shadow wp_noBoxShadow" style=""
+			layout="row">
+			<div flex="85" class="wp_respWidth100">
+				<h2 class="white popupHeading wp_popupHeading wp_OTPTitleFont">
+					{{globalLabel.applicationLabels.login.OTPCaption}}</span>
+				</h2>
+			</div>
+			<div class='ng-modal-close' ng-click='closeAuthenticateForm()'
+				style="color: #fff;" flex="15" ng-if="!$root.wordPressEnabled">
+				<i class="material-icons">close</i>
+			</div>
+		</div>
+	</div>
+
+	<div class="pad10 mobileHealthFamily pad10Padding" layout="column">
+		<div
+			class="fullShadow resultBg familyPopup wp_signinFamilyInnerPopup padLand"
+			style="margin-bottom: 0px !important;">
+			<div class="popupTableHealth popupPadding" layout="row"
+				style="padding: 3% 0% 0% 0% !important;">
+				<div flex="100" style="text-align: center; padding: 1% 0%;">
+					<b class="wp_respFont13">{{globalLabel.applicationLabels.login.enterOTPCaption}}</b>
+				</div>
+			</div>
+			<md-input-container class="md-block">
+			<div class="pad10">
+				<div flex="100" class="OTPInputBorder">
+					<label></label> <input name="loginMobileNumber"
+						class="signBoxShadow " ng-model="authenticate.enteredOTP"
+						placeholder='xxxxxx' autocomplete="off" ng-pattern="/\d{6}/"
+						maxlength="6" minlength="6"
+						style="background: transparent !important; text-align: center;"
+						required md-no-asterisk />
+				</div>
+			</div>
+			</md-input-container>
+			<div style="color: red; text-align: center; margin-bottom: 1%;"
+				class="wp_respFont13">{{invalidOTPError}}</div>
+			<div style="color: green; text-align: center; margin-bottom: 1%;"
+				class="wp_respFont13">{{globalLabel.validationMessages.otpValidPeriod}}</div>
+		</div>
+	</div>
+	<div class="center">
+		<button type="submit" class="bluebutton wp_signInBtn"
+			id="authenticateUser"
+			ng-disabled="authenticateForm.$invalid || $rootScope.disableLandingLeadBtn"
+			ng-click="authenticateUser();$rootScope.disableLandingLeadBtn=true">
+			Submit <span ng-show="$rootScope.disableLandingLeadBtn"><i
+				class="fa fa-spinner fa-spin "></i></span>
+		</button>
+	</div>
+	<div class="pad10 center">
+		<md-button ng-click="resendOTP()" ng-disabled="disableOTP">
+		<span class="resendLink">Resend OTP</span></md-button>
+	</div>
+</form>
+</modal-dialog>
+<modal-dialog show='$root.modalChildPlanConfirm' width='550px'
+	height='auto' class="ng-hide" ng-if="$root.wordPressEnabled">
+<div class='ng-modal-close wp_modalClose'
+	ng-click='hideEmailConfirmModal()' ng-if="$root.wordPressEnabled">
+	<i class="material-icons">close</i>
+</div>
+<div>
+	<div
+		class="blueBackground one-edge-shadow wp_noBluebackground wp_noBoxShadow"
+		style="" layout="row">
+		<div class="" style="padding-top: 5px;" flex="100">
+			<h3 class="white popupHeading wp_popupHeading"
+				style="text-align: center;">
+				<span>Contact Us-Confirmation</span>
+			</h3>
+		</div>
+
+	</div>
+	<div class="pad10 responsiveTellus newPopupInnerShadow" style="">
+		<div class="popupTableHealth popupPadding" layout="row"
+			style="padding: 3% 0% 3% 0% !important;">
+			<div flex="100" style="text-align: center; padding: 1% 0%;">
+				<p style="color: #268fe2; font-size: 16px;">Thank for reaching
+					out.we would get in touch with you shortly</p>
+			</div>
+		</div>
+		<div class="center">
+			<button type="button" class="bluebutton"
+				ng-click="submitChildPlanConfirm()">OK</button>
+		</div>
+	</div>
+</div>
+</modal-dialog>

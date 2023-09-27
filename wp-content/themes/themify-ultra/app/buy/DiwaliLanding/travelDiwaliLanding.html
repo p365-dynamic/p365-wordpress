@@ -1,0 +1,156 @@
+<div ng-controller="travelInstantQuoteController">
+	<div class="outerHeadDropText" style="background-color: #7371ff;">
+		<form name="$root.validateUserInfo">
+		<!-- TripType -->
+		<div class="headDropText">
+			<md-input-container class="md-block"> <label>{{globalLabel.applicationLabels.travel.tripType}}
+			</label> <md-select class="whiteText" name="tripType" ng-model="travelDetails.tripType"
+				ng-change="toggleTripType();callSingleClickQuote()" ng-disabled=false> <md-option
+				ng-value="type.tripType" ng-repeat="type in tripTypeList">
+				{{type.displayField}}</md-option> </md-select> 
+			<div ng-if="travelInstantQuoteForm.startDate.$error.required"
+				style="color: red;">{{globalLabel.applicationLabels.travel.required}}</div>
+			</md-input-container>
+			</div>
+			<!-- ./TripType -->
+		<div class="headDropText">
+			<md-input-container class="md-block" >
+			<label>{{globalLabel.applicationLabels.travel.destination_label}}</label>
+			<div ng-scrollable style="height:90px;">
+			<md-chips ng-model="travelDetails.destinations" 
+				md-require-match="true" class="wp_travel_md-chips_white" ng-change=""
+				name="dest" ng-required="true" 
+				placeholder="Destinations"
+				md-on-add="callSingleClickQuote()"
+				md-on-remove = "callSingleClickQuote()"
+				secondary-placeholder="Destination"> 
+				<md-autocomplete
+				style="width:40%;"
+				md-selected-item="" 
+				md-search-text="searchText"
+				md-items="continent in getContinentList(searchText)"
+				md-item-text="continent.displayField" md-min-length="2"
+				md-autoselect="true" md-input-name="destination">
+			<span md-highlight-text="searchText">{{continent.displayField}}</span>
+			<md-not-found> <span style="text-color:red;">No
+				Results Found</span> </md-not-found> </md-autocomplete> 
+				<md-chip-template> 
+					<strong>{{travelDetails.destinations[$index].displayField}}</strong>
+				</md-chip-template> 
+			</md-chips>
+			</div>
+			<span ng-show="travelDetails.destinations.length == 0" style="text-color:red;">
+			  At least one destination is required
+      		</span>
+      		</md-input-container>
+		</div>
+		<!--./ Travelling to -->
+	
+		<div class="headDropText">
+			<md-input-container class="md-block wp_whiteColor">
+			<label>{{globalLabel.applicationLabels.travel.startDate}}</label> <input
+				class="newDatepickerBorder" type="text" name='startDate'
+				ng-model="travelDetails.startdate" readonly="readonly"
+				ng-change="toggleDate()" p365-date-picker="travelStartDateOptions"
+				required md-no-asterisk />
+			<div ng-if="travelInstantQuoteForm.startDate.$error.required"
+				style="color: red;">{{globalLabel.applicationLabels.travel.required}}</div>
+			<div ng-messages="travelInstantQuoteForm.startDate.$error"
+				ng-if="travelInstantQuoteForm.startDate.$touched"></div>
+			</md-input-container>
+		</div>
+		<!-- ./Start date -->
+		<!-- End date -->
+		<div class="headDropText">
+			<md-input-container class="md-block wp_whiteColor">
+			<label>{{globalLabel.applicationLabels.travel.endDate}}</label> <input
+				class="newDatepickerBorder" type="text" name='endDate' 
+				ng-model="travelDetails.enddate" readonly="readonly" 
+				ng-change="callSingleClickQuote()"  p365-date-picker="travelEndDateOptions"
+				required md-no-asterisk />
+			<div ng-if="travelInstantQuoteForm.endDate.$error.required"
+				style="color: red;">{{globalLabel.applicationLabels.travel.required}}</div>
+			<div ng-messages="travelInstantQuoteForm.endDate.$error"
+				ng-if="travelInstantQuoteForm.endDate.$touched"></div>
+		</md-input-container>
+		</div>
+		<!--./ End date -->
+		<div class="headDropText">
+			<md-input-container class="md-block"> <label
+				class="wp_whiteColor ">{{globalLabel.applicationLabels.travel.sumInsured}}</label> 
+			  <md-select
+				name="type" ng-model="travelDetails.sumInsured"
+				ng-change = "callSingleClickQuote()"
+				class="mdInputContainer_input whiteText"
+				required><md-option 
+				ng-value="suminsuredvalue.suminsured" name='suminsured1'
+				ng-repeat="suminsuredvalue in sumInsuredList">&#36; {{suminsuredvalue.suminsured | regexINR}}</md-option>
+			 </md-select> 
+			</md-input-container>
+		</div>
+		<!-- <div class="headDropText">
+					<md-input-container class="md-block mar11" flex-gt-sm>
+					<label class="whiteText">Name</label>
+					<input type="text" name="fname" value="" placeholder=""
+						style="text-transform: capitalize;" class="border whiteText"
+						ng-model='quoteUserInfo.name' autocomplete='off'
+						maxlength='35' minlength='1' ng-pattern="/^[a-zA-Z\s]*$/" required
+						capitalize-first>
+					<div ng-if="submitted && $root.validateUserInfo.fname.$error.required"
+						style="color: white; font-size: 12px;">Full name is required.</div>
+					<div ng-messages="$root.validateUserInfo.fname.$error"
+						ng-if="$root.validateUserInfo.fname.$touched">
+						<div ng-message="pattern" style="color: white; font-size: 12px;">
+						Enter valid Name</div>
+					</div>
+		</div> -->
+		<div class="innerHeadDropText">
+		<md-input-container class="md-block mar16" flex-gt-sm>
+		<label class="whiteText">Mobile No.</label> <input
+			ng-model="quoteUserInfo.mobileNumber" name="mobileNo" class="border whiteText"
+			required placeholder="" ng-pattern="/^[789]\d{9}$/" maxlength="10"
+			minlength="10" md-autofocus md-no-float> </md-input-container>
+		</div>
+		<div
+			ng-if="submitted && $root.validateUserInfo.mobileNo.$error.required"
+			style="color: white; font-size: 12px;">Mobile number is
+			required.</div>
+		<div ng-messages="$root.validateUserInfo.mobileNo.$error"
+			ng-if="$root.validateUserInfo.mobileNo.$touched">
+			<div ng-message="pattern" style="color: white;">Enter valid
+				Mobile No</div>
+		</div>
+	
+		<div class="innerHeadDropText">
+			<md-input-container class="md-block mar16" flex-gt-sm>
+			<label class="whiteText">Email Id</label> <input
+				ng-model='quoteUserInfo.emailId' name="email"
+				class="border whiteText" required placeholder=""
+				ng-pattern='/^[a-zA-Z]+[a-zA-Z0-9._]+@[a-zA-Z0-9]+.[a-z.]{2,5}$/'
+				maxlength="50" md-autofocus md-no-float> </md-input-container>
+		</div>
+		<div
+			ng-if="submitted && $root.validateUserInfo.email.$error.required"
+			style="color: white; font-size: 12px;">Email Id is required.</div>
+		<div ng-messages="$root.validateUserInfo.email.$error"
+			ng-if="$root.validateUserInfo.email.$touched">
+			<div ng-message="pattern" style="color: white;">Enter valid
+				Email Id</div>
+		</div>
+		<div style="padding: 0% 7% !important;">
+			<div class="">
+				<div style="text-align: center;">
+					<md-button id="travelLeadSubmission"
+						ng-click="$root.landingLead(quoteUserInfo.mobileNumber,quoteUserInfo.emailId,quoteUserInfo.name);$root.validateForm();submitted = true;"
+						ng-disabled="disabledRedirectToResult"
+						style="color:#7371ff;background:#fff !important;width: 100%;margin: 5px auto !important;padding:2px 0;
+							   border-radius: 7px;font-size: 16px;font-weight:600 !important;">SUBMIT
+							   
+						<span ng-show="disabledRedirectToResult"><i
+						class="fa fa-spinner fa-spin "></i></span></md-button>
+				</div>
+			</div>
+		</div>
+</form>
+</div>
+</div>

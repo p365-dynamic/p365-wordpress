@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="policies365">
+  <head>
+    <!--base tag added for opening payment gateway in iframe in same tab for agencyPortal & droom -->
+    <base target="_parent" />
+    <link rel="icon" href="img/p365_icon.png" type="image/png" sizes="16x16" />
+    <title ng-bind="$root.title"></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="{{ngMeta.keyword}}" />
+    <meta name="description" content="{{ngMeta.description}}" />
+    <meta property="og:title" content="{{$root.title}}" />
+    <meta
+      property="og:image"
+      content="https://www.policies365.com/img/logo.png"
+    />
+    <meta property="og:description" content="{{ngMeta.description}}" />
+    <meta property="og:url" content="https://www.policies365.com/" />
+    <link rel="canonical" href="https://www.policies365.com/" />
+
+    <link
+      rel="stylesheet"
+      href="css/policies365.core-1.0.min.css"
+      media="all"
+    />
+
+    <link rel="stylesheet" href="css/policies365.core-1.1.min.css" />
+
+    <script src="js/Policies365.core-1.0.min.js"></script>
+
+    <script src="js/Policies365.core-1.1.min.js"></script>
+
+    <script src="js/Policies365.core-1.2.min.js"></script>
+
+    <script src="js/Policies365.core-1.3.min.js"></script>
+
+    <script src="js/Policies365.common.min.js"></script>
+
+    <script src="js/Policies365.professionalJourney.min.js"></script>
+
+    <script src="js/Policies365.labels.min.js"></script>
+
+    <script src="js/Policies365.lifeQuote.min.js"></script>
+
+    <script src="js/Policies365.lifeProposal.min.js"></script>
+
+    <script src="js/Policies365.lifePayment.min.js"></script>
+
+    <script src="js/Policies365.bikeQuote.min.js"></script>
+
+    <script src="js/Policies365.bikeProposal.min.js"></script>
+
+    <script src="js/Policies365.bikePayment.min.js"></script>
+
+    <script src="js/Policies365.carQuote.min.js"></script>
+
+    <script src="js/Policies365.carProposal.min.js"></script>
+
+    <script src="js/Policies365.carPayment.min.js"></script>
+
+    <script src="js/Policies365.healthQuote.min.js"></script>
+
+    <script src="js/Policies365.healthProposal.min.js"></script>
+
+    <script src="js/Policies365.healthPayment.min.js"></script>
+
+    <script src="js/Policies365.travelQuote.min.js"></script>
+
+    <script src="js/Policies365.travelProposal.min.js"></script>
+
+    <script src="js/Policies365.travelPayment.min.js"></script>
+
+    <script src="js/Policies365.homeQuote.min.js"></script>
+
+    <script src="js/Policies365.criticalIllnessQuote.min.js"></script>
+
+    <script src="js/Policies365.personalAccidentQuote.min.js"></script>
+
+    <script src="js/Policies365.personalAccidentProposal.min.js"></script>
+
+    <script src="js/Policies365.personalAccidentPayment.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHs_Er19ZT9lozf3_yFlxkFncMqHUEbd8&libraries=places"
+    ></script>
+  </head>
+
+  <body ng-controller="headerController">
+    <div
+      ng-view
+      id="home"
+      autoscroll="true"
+      ng-if="$root.professionalJourneyInit"
+    ></div>
+  </body>
+
+  <!-- Added by gauri for iMAT application -->
+  <script>
+    (function (w, d, t, u, n, a, m) {
+      w["MauticTrackingObject"] = n;
+      (w[n] =
+        w[n] ||
+        function () {
+          (w[n].q = w[n].q || []).push(arguments);
+        }),
+        (a = d.createElement(t)),
+        (m = d.getElementsByTagName(t)[0]);
+      a.async = 1;
+      a.src = u;
+      m.parentNode.insertBefore(a, m);
+    })(window, document, "script", "https://imat.policies365.com/mtc.js", "mt");
+
+    //     mt('send', 'pageview', {
+    //         channel: 'P365Website'
+    //     });
+  </script>
+  <script
+    type="text/javascript"
+    src="https://imat.policies365.com/form/generate.js?id=6"
+  ></script>
+</html>

@@ -1,0 +1,221 @@
+<div ng-controller="healthInstantQuoteController">
+	<div class="outerHeadDropText" style="background-color: #70cf42;">
+		<form name="$root.validateUserInfo">
+			<div class="headDropText">
+				<div>
+					<md-input-container class="md-block mar11" flex-gt-sm>
+					<label class="whiteText">Gender</label> <md-select name="type"
+						ng-model="quoteParam.selfGender" class="whiteText"
+						ng-change="singleClickHealthQuote()"> <md-option
+						ng-value="gender.value" ng-repeat="gender in genderType">{{gender.label}}</md-option>
+					</md-select> </md-input-container>
+				</div>
+				<div class="headDropText">
+					<label class="whiteText" style="font-size: 13px">{{globalLabel.applicationLabels.health.healthInsuranceFor}}
+						<a data-ng-class="{'disabled': instantQuoteHealthForm}" class=""
+						href="javascript:;" ng-click='toggleFamily()'
+						style="font-size: 13px !important;">[{{globalLabel.applicationLabels.health.change}}]</a>
+					</label>
+					<md-input-container class="md-block" flex-gt-sm
+						style="margin-top:0px;">
+
+					<div ng-repeat="data in familyList" ng-if="data.val==true">
+						<span class="whiteText"> <b>{{data.member}} -
+								{{data.age}} years</b>
+						</span>
+					</div>
+					</md-input-container>
+					<div class="clearfix"></div>
+				</div>
+
+				<!-- <div class="innerHeadDropText">
+					<md-input-container class="md-block mar11" flex-gt-sm>
+					<label class="whiteText">Age</label> <md-select name="type"
+						class="whiteText" ng-model="$parent.ageInsured"
+						ng-change="singleClickHealthQuote()" ng-init="age='35'">
+					<md-option ng-value="value" ng-selected="{{value == age}}"
+						ng-repeat="value in ageList">{{value}}</md-option></md-input-container>
+
+				</div> -->
+				<div class="innerHeadDropText">
+					<md-input-container class="md-block mar11" flex-gt-sm>
+					<label class="whiteText">Pincode</label> <input name="pin"
+						ng-required="true" typeahead-on-select="onSelectPinOrArea($item)"
+						typeahead-wait-ms="10" typeahead-no-results="noResults"
+						ng-model="personalInfo.pincode" class="whiteText"
+						uib-typeahead="pin.display for pin in getPinCodeAreaList($viewValue)"
+						typeahead-show-hint="false" typeahead-min-length="3"
+						typeahead-wait-ms="10" style="background: transparent !important;" />
+					</md-input-container>
+				</div>
+				<div ng-if="submitted && $root.validateUserInfo.pin.$error.required"
+					style="color: white; font-size: 12px;">Pincode is required.</div>
+				<div ng-messages="$root.validateUserInfo.pin.$error"
+					ng-if="$root.validateUserInfo.pin.$touched">
+					<div ng-message="pattern" style="color: white;">Enter valid
+						Pincode</div>
+				</div>
+				<div class="innerHeadDropText">
+					<md-input-container class="md-block mar16" flex-gt-sm>
+					<label class="whiteText">Mobile No.</label> <input
+						ng-model="quoteUserInfo.mobileNumber" name="mobileNo" class="border whiteText"
+						required placeholder="" ng-pattern="/^[789]\d{9}$/" maxlength="10"
+						minlength="10" md-autofocus md-no-float> </md-input-container>
+				</div>
+				<div
+					ng-if="submitted && $root.validateUserInfo.mobileNo.$error.required"
+					style="color: white; font-size: 12px;">Phone number is
+					required.</div>
+				<div ng-messages="$root.validateUserInfo.mobileNo.$error"
+					ng-if="$root.validateUserInfo.mobileNo.$touched">
+					<div ng-message="pattern" style="color: white;">Enter valid
+						Mobile No</div>
+				</div>
+				<div class="innerHeadDropText">
+				<md-input-container class="md-block mar16" flex-gt-sm>
+				<label class="whiteText">Email Id</label> <input
+					ng-model='quoteUserInfo.emailId' name="email"
+					class="border whiteText" required placeholder=""
+					ng-pattern='/^[a-zA-Z]+[a-zA-Z0-9._]+@[a-zA-Z0-9]+.[a-z.]{2,5}$/'
+					maxlength="50" md-autofocus md-no-float> </md-input-container>
+			</div>
+			<div
+				ng-if="submitted && $root.validateUserInfo.email.$error.required"
+				style="color: white; font-size: 12px;">Email Id is required.</div>
+			<div ng-messages="$root.validateUserInfo.email.$error"
+				ng-if="$root.validateUserInfo.email.$touched">
+				<div ng-message="pattern" style="color: white;">Enter valid
+					Email Id</div>
+			</div>
+				<div style="padding: 0% !important;">
+					<div class="">
+						<div style="text-align: center;">
+							<md-button id="healthLeadSubmission"
+								ng-click="$root.landingLead(quoteUserInfo.mobileNumber,quoteUserInfo.emailId,'');$root.validateForm();submitted = true;"
+								ng-disabled="disabledRedirectToResult"
+								style="color:#424242;background:#fff !important;width: 100%;margin: 5px auto !important;padding:2px 0;border-radius: 7px;font-size: 16px;font-weight:600 !important;">GET
+							IN TOUCH<span ng-show="disabledRedirectToResult"><i
+								class="fa fa-spinner fa-spin "></i></span></md-button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</form>
+
+	<modal-dialog show='modalFamily' width='500px' height='auto'
+		class="ng-hide">
+	<div class='ng-modal-close wp_modalClose'
+		ng-click='closeFamilyMemberModal()' ng-if="$root.wordPressEnabled">
+		<i class="material-icons">close</i>
+	</div>
+	<div
+		class="blueBackground one-edge-shadow wp_noBluebackground wp_noBoxShadow"
+		style="" layout="row">
+		<div flex="85" flex-sm="85" flex-xs="85"
+			class="wp_respWidth100 wp_Width100"
+			style="padding: 4% 0%; text-align: center;">
+			<h2 class="white popupHeading wp_popupHeading">
+				{{globalLabel.applicationLabels.health.addFamilyMembers}}</h2>
+		</div>
+		<div class='ng-modal-close' ng-click='closeFamilyMemberModal()'
+			ng-if="!$root.wordPressEnabled" style="color: #fff;" flex="15">
+			<i class="material-icons">close</i>
+		</div>
+	</div>
+
+	<div class="pad10 mobileHealthFamily pad10Padding mobileSmFix">
+		<div class="leadCaptureBox familyPopup">
+			<div class="popupTableHealth popupPadding" layout="row"
+				style="padding: 5% 0% !important;">
+				<div class="col col-lg-8">
+					<b>Relationship</b>
+				</div>
+				<div class="col col-lg-4">
+					<b>Age</b>
+				</div>
+			</div>
+			<md-divider></md-divider>
+			<div ng-repeat="data in familyList" ng-if="data.other==false">
+				<div layout="row" class="familyPopupPadding section">
+					<div class="col col-lg-8">
+						<md-checkbox value="{{data}}" ng-model="data.val"> </md-checkbox>
+						<span class="alignLabelCheckBox">{{data.member}}</span> <span
+							ng-if="data.member=='Son' && data.iconFlag==true "> <md-button
+								class="familyBtnChild" ng-disabled="data.val==false"
+								ng-click="addNewSon($index)" id="addNewSonInstant">+
+							Son</md-button>
+						</span> <span ng-if="data.member=='Daughter' && data.iconFlag==true">
+
+							<md-button class="familyBtnChild" ng-disabled="data.val==false"
+								ng-click="addNewDaughter($index)" id="addNewSonInstant">+
+							Daughter</md-button>
+						</span>
+					</div>
+					<div class="familySelect col col-lg-4">
+						<input type="hidden" ng-value="data.age" class="hiddenAge">
+						<div ng-if="data.val">
+							<md-input-container class="md-block"
+								style="margin: 0%; top:-7px;"> <md-select
+								name="type" ng-model="data.age" class="wp_familyPopoup">
+							<md-option ng-value="value" ng-selected="{{value == data.age}}"
+								ng-repeat="value in getAgeArray(data.minAge, data.maxAge)">{{value}}</md-option>
+							</md-select> </md-input-container>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div layout-sm="column">
+					<md-divider></md-divider>
+				</div>
+
+			</div>
+			<div ng-if="basicExpanded">
+				<div ng-repeat="data in familyList" ng-if="data.other==true">
+					<div layout="row" class="familyPopupPadding section">
+						<div class="col col-lg-8">
+							<md-checkbox value="{{data}}" ng-model="data.val">
+							</md-checkbox>
+							<span class="alignLabelCheckBox">{{data.member}}</span>
+						</div>
+						<div class="familySelect col col-lg-4">
+							<span> <input type="hidden" ng-value="data.age"
+								class="hiddenAge">
+								<div ng-if="data.val">
+									<md-input-container class="md-block"
+										style="margin: 0%; top:-7px;"> <md-select
+										ng-if="data.val" name="type" ng-model="data.age">
+									<md-option ng-value="value" ng-selected="{{value == data.age}}"
+										ng-repeat="value in getAgeArray(data.minAge, data.maxAge)">
+									{{value}} </md-option> </md-select> </md-input-container>
+								</div></span>
+						</div>
+
+						<div class="clearfix"></div>
+					</div>
+					<div layout-sm="column">
+						<md-divider></md-divider>
+					</div>
+				</div>
+			</div>
+			<div class="familyBtnAlign" style="text-align: center;">
+				<md-button ng-click="toggleBasicExpanded()" class="familyBtn"
+					id="addNewFamilyMemberInstant"> &nbsp;<i
+					ng-if="basicExpanded" class="fa fa-minus" style="font-size: 10px;"
+					aria-hidden="true"></i> <i ng-if="!basicExpanded"
+					class="fa fa-plus" style="font-size: 10px;" aria-hidden="true"></i>
+				Other Family Members&nbsp; </md-button>
+			</div>
+		</div>
+
+		<div class="center submitBtnAlign center">
+			<div style="color: red" ng-repeat="error in familyErrors"
+				class="familySubmit">{{error}}</div>
+			<md-button type="submit" class="md-raised md-primary wp_button"
+				id="submitFamilyMemberInstant" ng-click="submitFamily()"
+				style="margin: 0px !important;">Submit</md-button>
+		</div>
+	</div>
+	</modal-dialog>
+</div>
+</div>

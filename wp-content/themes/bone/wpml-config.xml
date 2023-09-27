@@ -1,0 +1,8 @@
+<wpml-config>
+  <admin-texts>
+    <key name="md_bone_opt">
+      <key name="copyright-text"/>
+      <key name="404-text"/>
+    </key>
+  </admin-texts>
+</wpml-config>

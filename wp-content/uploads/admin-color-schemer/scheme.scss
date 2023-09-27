@@ -1,0 +1,19 @@
+$base_color: #ffffff;
+$icon_color: #ffffff;
+$highlight_color: #f7a100;
+$notification_color: #dd3333;
+$button_color: #2991ea;
+$text_color: #ffffff;
+$body_background: #eaeaea;
+$link: #000000;
+$link_focus: #878787;
+$menu_background: #2991ea;
+$menu_current_text: #ffffff;
+$menu_submenu_background: #acb6bf;
+$menu_submenu_text: #000000;
+$menu_submenu_background_alt: #136cbf;
+$menu_submenu_current_text: #2991ea;
+
+
+@import 'colors.css';
+@import '_admin.scss';

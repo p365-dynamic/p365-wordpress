@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>policies 365</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">	
+        <link rel="stylesheet" href="css/font-awesome.min.css"> 				
+	</head>
+	<body>
+		
+<!------------------------------Header Start-------------------->
+
+<header>
+ <div class="header">
+            <div class="logo">
+                <a href="#"><img src="images/logo.png"></a>
+            </div>
+
+            <div class="navbar-right nav_menu">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">HOME</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">PORTFOLIO</a>
+                    <a href="#">ADVERDISEMENT</a>
+                    <a href="#">COMPANY TRIP</a>
+                    <a href="#">CONTACT</a>
+
+                </div>
+
+                <span class="mr-auto" style=" " onclick="openNav()"> &#9776; </span>
+      </div>
+        </div>
+</header>
+
+<div class="slider_header">
+        <div class="img_slider">
+            <img src="images/banner1.jpg" alt="">
+        </div>
+
+    <div class="sider_text">
+
+        <div class="slider_heading">
+            <h1 class="slider_title">With our Life insurance,</h1>
+            <p class="desgin">your family will never feel your absence.</p>
+        </div>
+
+    </div>
+ </div>
+
+<section class="we-care">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="we-care-content">
+					<ul>
+						<li>Additional riders available to cover personal accident, critical illness and waiver of premium</li>
+						<li>Get tax benefits u/s 80C & 10D</li>
+					</ul>
+					<h2>WE CARE. WE SERVE.</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="enter-no">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="no-form">
+					<form>  
+						<h2>Get Life Insurance</h2>
+					  <div class="form-group">
+							<label for="phone">Mobile number</label>
+							<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" placeholder="+91 1234567890">
+					  </div>
+					 <label class="chknow">I accept the <a href="#">Terms & Conditions.</a>
+					  <input type="checkbox">
+					  <span class="checkmark"></span>
+					</label>
+					<button type="submit" form="form1" value="Submit">Submit</button>
+					  </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!----------------------------Footer End-------------------------->
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>	
+
+<script>
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "90%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        $(document).ready(function() {
+            $('#Carousel').carousel({
+                interval: 5000
+            })
+        });
+</script>
+
+	</body>
+</html>
