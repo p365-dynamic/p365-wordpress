@@ -368,8 +368,7 @@ add_action( 'wp_enqueue_scripts', 'angular_matter');
 	
 	
 	//review slider ends
-
-	function Product_Videos( $atts ) {
+	function Product_Videos( $atts, $paged = null ) {
 		$cat = $atts['cat'];
 		$cat_id = get_cat_id($cat);
 		$loop = new WP_Query( array( 'post_type' => 'product_video', 'ignore_sticky_posts' => 0, 'cat'=> $cat_id,'paged' => $paged ) );
@@ -525,7 +524,7 @@ function dash_customs() {
 //global $wp_meta_boxes;
 	$current_user   = wp_get_current_user();
 	$role_name      = $current_user->roles[0];
-	$role_name1      = $current_user->roles[1];
+	$role_name1      = $current_user->roles[0];
  
     if ( 'affiliate_manager' === $role_name || 'affiliate_manager' === $role_name1 ) {
 		echo '<style>.update-nag, .toplevel_page_newaffiliate{display:none !important;}</style>';
@@ -624,7 +623,7 @@ function wprole_set_admin_color()
     $current_user = wp_get_current_user();
 
 	$role_name      = $current_user->roles[0];
-	$role_name1      = $current_user->roles[1];
+	$role_name1      = $current_user->roles[0];
  
     if ( 'chat_manager' === $role_name || 'chat_manager' === $role_name1 || 'chat_agent' === $role_name || 'chat_agent' === $role_name1 ) {
         // Remove the Admin Color Scheme picker

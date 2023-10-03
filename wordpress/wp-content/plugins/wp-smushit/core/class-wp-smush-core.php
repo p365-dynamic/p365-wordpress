@@ -296,7 +296,7 @@ class WP_Smush_Core {
 	 * @todo move to installer class
 	 */
 	private function migrate() {
-		if ( ! version_compare( WP_SMUSH_VERSION, '1.7.1', 'lte' ) ) {
+		if ( ! version_compare( WP_SMUSH_VERSION, '1.7.1', 'lt' ) ) {
 			return;
 		}
 

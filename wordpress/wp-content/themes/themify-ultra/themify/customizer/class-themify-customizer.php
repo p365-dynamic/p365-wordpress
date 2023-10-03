@@ -759,7 +759,7 @@ if (!class_exists('Themify_Customizer')) :
 		 * @since 2.2.7 Fonts are enqueued in a single call.
 		 */
 		function enqueue_fonts($fonts) {
-			$custom_fonts = !empty($this->customizer_fonts) ? $this->customizer_fonts : get_option('themify_custom_fonts') ? get_option('themify_custom_fonts') : array();
+			$custom_fonts = ''; //!empty($this->customizer_fonts) ? $this->customizer_fonts : get_option('themify_custom_fonts') ? get_option('themify_custom_fonts') : array();
 
 			if (!empty($custom_fonts)) {
 				foreach ($custom_fonts as $font) {

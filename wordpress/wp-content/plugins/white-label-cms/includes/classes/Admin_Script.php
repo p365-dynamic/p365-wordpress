@@ -60,7 +60,7 @@ class WLCMS_Admin_Script
 
     private function _setHiddenCss()
     {
-        $hidden = implode($this->hidded_elements, ',');
+        $hidden = implode(',', $this->hidded_elements);
         if (!empty($hidden)) {
             $this->setCss($hidden, array('display' => 'none'));
         }
@@ -68,7 +68,7 @@ class WLCMS_Admin_Script
 
     private function _setBulkCss()
     {
-        return implode($this->bulk_css, '');
+        return implode('', $this->bulk_css);
     }
 
     public function appendJs($js)
@@ -78,7 +78,7 @@ class WLCMS_Admin_Script
 
     function compileJs()
     {
-        return implode($this->js, '');
+        return implode('', $this->js);
     }
 
     function compileCss()
